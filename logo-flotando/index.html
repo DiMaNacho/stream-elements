@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logo Flotando</title>
+
+    <style>
+      @keyframes float {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-20px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+
+      body,
+      html {
+        background: transparent;
+        height: 100%;
+        margin: 0;
+        padding: 100px;
+      }
+
+      .avatar {
+        width: 150px;
+        height: 150px;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="avatar">
+      <img src="./logo.png" alt="Skytsunami" />
+    </div>
+  </body>
+</html>
