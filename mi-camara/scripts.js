@@ -5,6 +5,10 @@ videoSelect.onchange = getStream;
 
 getStream().then(getDevices).then(gotDevices);
 
+// Solo para mi
+videoSelect.selectedIndex = 3;
+videoSelect.dispatchEvent(new Event("change"));
+
 function getDevices() {
   // AFAICT in Safari this only gets default devices until gUM is called :/
   return navigator.mediaDevices.enumerateDevices();
