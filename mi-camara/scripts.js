@@ -1,57 +1,70 @@
-var videoElement = document.querySelector("video");
-var videoSelect = document.querySelector("select#videoSource");
+const fn = () => {
+  const videoElement = document.querySelector("video");
+  const videoSelect = document.querySelector("select#videoSource");
 
-videoSelect.onchange = getStream;
-
-getStream().then(getDevices).then(gotDevices);
-
-// Solo para mi
-videoSelect.selectedIndex = 3;
-videoSelect.dispatchEvent(new Event("change"));
-
-function getDevices() {
   // AFAICT in Safari this only gets default devices until gUM is called :/
-  return navigator.mediaDevices.enumerateDevices();
-}
+  const getDevices = () => navigator.mediaDevices.enumerateDevices();
 
-function gotDevices(deviceInfos) {
-  window.deviceInfos = deviceInfos; // make available to console
-  console.log("Available input and output devices:", deviceInfos);
-  for (const deviceInfo of deviceInfos) {
-    const option = document.createElement("option");
-    option.value = deviceInfo.deviceId;
-    if (deviceInfo.kind === "videoinput") {
-      option.text = deviceInfo.label || `Camera ${videoSelect.length + 1}`;
-      videoSelect.appendChild(option);
+  const gotDevices = (deviceInfos) => {
+    window.deviceInfos = deviceInfos; // make available to console
+    console.log("Available input and output devices:", deviceInfos);
+
+    for (const deviceInfo of deviceInfos) {
+      const option = document.createElement("option");
+      option.value = deviceInfo.deviceId;
+      if (deviceInfo.kind === "videoinput") {
+        option.text = deviceInfo.label || `Camera ${videoSelect.length + 1}`;
+        videoSelect.appendChild(option);
+      }
     }
-  }
-}
-
-function getStream() {
-  if (window.stream) {
-    window.stream.getTracks().forEach((track) => {
-      track.stop();
-    });
-  }
-  const videoSource = videoSelect.value;
-  const constraints = {
-    video: { deviceId: videoSource ? { exact: videoSource } : undefined },
   };
-  return navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then(gotStream)
-    .catch(handleError);
-}
 
-function gotStream(stream) {
-  window.stream = stream; // make stream available to console
+  const getStream = async () => {
+    try {
+      if (window.stream) {
+        window.stream.getTracks().forEach((track) => {
+          track.stop();
+        });
+      }
+      const videoSource = videoSelect.value;
+      const constraints = {
+        video: { deviceId: videoSource ? { exact: videoSource } : undefined },
+      };
 
-  videoSelect.selectedIndex = [...videoSelect.options].findIndex(
-    (option) => option.text === stream.getVideoTracks()[0].label
-  );
-  videoElement.srcObject = stream;
-}
+      const newDevices = await navigator.mediaDevices.getUserMedia(constraints);
+      const newStream = await gotStream(newDevices);
 
-function handleError(error) {
-  console.error("Error: ", error);
-}
+      return newStream;
+    } catch (e) {
+      handleError(e);
+    }
+  };
+
+  const gotStream = (stream) => {
+    window.stream = stream; // make stream available to console
+
+    videoSelect.selectedIndex = [...videoSelect.options].findIndex(
+      (option) => option.text === stream.getVideoTracks()[0].label
+    );
+    videoElement.srcObject = stream;
+  };
+
+  const handleError = (error) => console.error("Error: ", error);
+
+  const start = async () => {
+    videoSelect.onchange = getStream;
+
+    const newStreams = await getStream();
+    const newDevices = await getDevices(newStreams);
+    gotDevices(newDevices);
+
+    console.log("asdasd");
+    // Solo para mi
+    videoSelect.selectedIndex = 3;
+    videoSelect.dispatchEvent(new Event("change"));
+  };
+
+  start();
+};
+
+fn();
