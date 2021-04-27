@@ -1,0 +1,88 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
+@keyframes shad-anim {
+  0% {
+    background-position: 0 0;
+  }
+  0% {
+    background-position: 100% -100%;
+  }
+}
+
+body,
+html {
+  /* background-color: red; */
+  background-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  height: 180px;
+  margin: 0;
+  padding: 0;
+  width: 800px;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.container {
+  align-items: center;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  font-size: 80px;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 0 0 0 20px;
+  width: 100%;
+  border-radius: 0 25px 25px 0;
+  overflow: hidden;
+}
+.container {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+  height: 100%;
+}
+.titulo {
+  color: white;
+  display: inline-block;
+  font-family: "Righteous", serif;
+  text-shadow: 0.03em 0.03em 0 hsla(230, 40%, 50%, 1);
+}
+.titulo:after {
+  content: attr(data-shadow);
+  position: absolute;
+  top: 0.06em;
+  left: 0.06em;
+  z-index: -1;
+  text-shadow: none;
+  background-image: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgb(224, 226, 235) 45%,
+    hsla(48, 20%, 90%, 1) 55%,
+    transparent 0
+  );
+  background-size: 0.05em 0.05em;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shad-anim 15s linear infinite;
+}
+
+.icono {
+  margin-right: 20px;
+}
+
+svg {
+  width: 100%;
+}
