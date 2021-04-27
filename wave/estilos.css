@@ -1,0 +1,30 @@
+body,
+html {
+  background-color: transparent;
+  /* background-color: red; */
+  font-size: 16px;
+  height: 800px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 800px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.container {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  transform: rotate(45deg) translate(0, 50vw);
+  width: 100%;
+}
+
+svg {
+  width: 100%;
+}
