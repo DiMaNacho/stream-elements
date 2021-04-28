@@ -28,11 +28,16 @@ const fn = () => {
       }
       const videoSource = videoSelect.value;
       const constraints = {
-        video: { deviceId: videoSource ? { exact: videoSource } : undefined },
+        aspectRatio: 1.777777778,
+        facingMode: { exact: "user" },
+        frameRate: { max: 30 },
+        video: {
+          deviceId: videoSource ? { exact: videoSource } : undefined,
+        },
       };
 
       const newDevices = await navigator.mediaDevices.getUserMedia(constraints);
-      const newStream = await gotStream(newDevices);
+      const newStream = gotStream(newDevices);
 
       return newStream;
     } catch (e) {
