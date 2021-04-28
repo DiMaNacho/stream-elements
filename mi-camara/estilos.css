@@ -69,10 +69,11 @@ html {
 .video {
   height: 100%;
   left: 50%;
+  object-fit: fill;
   position: absolute;
   top: 0;
   transform: translateX(-50%);
-  width: auto;
+  width: calc(1920px * 0.6518);
 }
 
 .borde {
