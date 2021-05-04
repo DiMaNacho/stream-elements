@@ -1,6 +1,6 @@
 :root {
-  --block-height: 720px;
-  --block-width: 720px;
+  --block-height: 100vh;
+  --block-width: 100vw;
   --border-radius-inner: calc(var(--border-radius-outer) / 1.2);
   --border-radius-outer: 40px;
   --border-width: 16px;
@@ -111,4 +111,5 @@ html {
 
 .select {
   margin-top: 150px;
+  display: none;
 }
