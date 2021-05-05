@@ -43,7 +43,7 @@ html {
   overflow: hidden;
   position: relative;
   box-shadow: 0 10px 40px -10px rgb(0 64 128 / 20%);
-  border-top-right-radius: var(--border-radius-outer);
+  border-bottom-left-radius: var(--border-radius-outer);
 }
 .camara:after {
   content: "";
@@ -52,7 +52,7 @@ html {
 }
 
 .contenido {
-  border-top-right-radius: var(--border-radius-inner);
+  border-bottom-left-radius: var(--border-radius-inner);
   display: flex;
   flex-direction: column;
   height: calc(100% - var(--border-width));

@@ -7,8 +7,8 @@ const fn = () => {
 
   const $titulo = document.querySelector(".titulo");
 
-  const iconoFinal = iconTemplate.replace("{icono}", icono(stream.invitado.red));
-  $titulo.innerHTML = `${iconoFinal} ${stream.invitado.nombre}`;
+  const iconoFinal = iconTemplate.replace("{icono}", icono(stream.columna.red));
+  $titulo.innerHTML = `${iconoFinal} ${stream.columna.nombre}`;
 };
 
 fn();
