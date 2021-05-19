@@ -64,7 +64,7 @@ const fn = () => {
     gotDevices(newDevices);
 
     // Solo para mi
-    videoSelect.selectedIndex = 5;
+    videoSelect.selectedIndex = 4;
     videoSelect.dispatchEvent(new Event("change"));
   };
 
