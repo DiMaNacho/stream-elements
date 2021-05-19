@@ -1,19 +1,21 @@
 const stream = {
   invitado: {
-    nombre: "@mundounouruguay",
+    nombre: "@UruguayTwitch",
     red: "ig",
     camara:
-      "https://obs.ninja/?view=a2b9UgX&scene&room=NoMeLaContainer_01&password=753951",
+      "http://obs.ninja/?bitrate=3000&framerate=60&width=1280&height=768&stereo=1&codec=av1&optimize&password=74123&scen&room=nmlc2021&view=WeQMunb",
   },
   yo: {
     nombre: "@DiMaNacho",
     red: "ig",
+    camara:
+      "http://obs.ninja/?bitrate=3000&framerate=60&width=1280&height=768&stereo=1&codec=av1&optimize&password=74123&scene&room=nmlc2021&view=WeQMunb",
   },
   columna: {
-    columna: "Cocinando con Gran Calvo",
-    nombre: "@GranCalvo",
+    columna: "Columna MundoUno",
+    nombre: "@NachoVerdeOficial",
     red: "ig",
     camara:
-      "https://obs.ninja/?view=a2b9UgX&scene&room=NoMeLaContainer_01&password=753951",
+      "http://obs.ninja/?bitrate=3000&framerate=60&width=1280&height=768&stereo=1&codec=av1&optimize&password=74123&scene&room=nmlc2021&view=WeQMunb",
   },
 };

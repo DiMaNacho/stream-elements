@@ -63,9 +63,8 @@ const fn = () => {
     const newDevices = await getDevices(newStreams);
     gotDevices(newDevices);
 
-    console.log("asdasd");
     // Solo para mi
-    videoSelect.selectedIndex = 3;
+    videoSelect.selectedIndex = 4;
     videoSelect.dispatchEvent(new Event("change"));
   };
 
