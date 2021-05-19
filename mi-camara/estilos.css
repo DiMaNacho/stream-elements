@@ -73,7 +73,7 @@ html {
   position: absolute;
   top: 0;
   transform: translateX(-50%);
-  width: calc(1920px * 0.6518);
+  /* width: calc(1920px * 0.6518); */
 }
 
 .borde {
