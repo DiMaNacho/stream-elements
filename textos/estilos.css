@@ -40,6 +40,10 @@ html {
   font-size: 15vw;
 }
 
+.azul {
+  font-size: 8vw;
+}
+
 @keyframes blink {
   0%,
   22%,
