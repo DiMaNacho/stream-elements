@@ -39,7 +39,7 @@ html {
 }
 
 .spotify .cover {
-  border-radius: 3vw;
+  border-radius: 27px;
   height: 250px;
   margin: 0;
   width: 250px;
@@ -55,7 +55,7 @@ html {
 
 .spotify .label {
   background: rgba(0, 0, 0, 0.75);
-  border-radius: 0 3vw 3vw 0;
+  border-radius: 0 27px 27px 0;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -63,8 +63,8 @@ html {
   height: 82%;
   justify-content: center;
   overflow: hidden;
-  padding-left: 1.3vw;
-  width: calc(100vw - 100vh);
+  padding-left: 11.7px;
+  width: 650px;
   transition: transform 0.5s linear;
   transform: translateX(0);
 }
@@ -95,14 +95,14 @@ html {
 }
 
 .spotify .titulo {
-  font-size: 3vw;
+  font-size: 27px;
   line-height: 150%;
   position: relative;
   z-index: 3;
 }
 
 .spotify .artista {
-  font-size: 2vw;
+  font-size: 18px;
   line-height: 100%;
   position: relative;
   z-index: 3;
