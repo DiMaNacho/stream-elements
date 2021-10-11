@@ -1,6 +1,6 @@
 const stream = {
   invitado: {
-    nombre: "@yosoyandyok",
+    nombre: "@MusicmanUY",
     red: "ig",
   },
   yo: {
@@ -9,7 +9,7 @@ const stream = {
   },
   columna: {
     columna: "Columna MundoUno",
-    nombre: "@leandro.sli",
+    nombre: "@nachoverdeoficial",
     red: "ig",
   },
 };

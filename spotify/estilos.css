@@ -1,0 +1,177 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
+/* https://i.pinimg.com/originals/e8/c5/32/e8c53270f2d7cbef93585c8e98f3937f.jpg */
+/* Tamaño de viewport recomendado: 900 x 250 */
+
+body,
+html {
+  background-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  height: 250px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 900px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.spotify {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: flex-start;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.spotify .cover {
+  border-radius: 3vw;
+  height: 250px;
+  margin: 0;
+  width: 250px;
+}
+
+.spotify .labelContainer {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  width: 650px;
+}
+
+.spotify .label {
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 0 3vw 3vw 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  height: 82%;
+  justify-content: center;
+  overflow: hidden;
+  padding-left: 1.3vw;
+  width: calc(100vw - 100vh);
+  transition: transform 0.5s linear;
+  transform: translateX(0);
+}
+
+.spotify .label::before {
+  box-shadow: inset 0 0 20px 10px rgba(56, 56, 56, 0.8);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.spotify .blurry {
+  -webkit-filter: blur(12px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(12px);
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.spotify .titulo {
+  font-size: 3vw;
+  line-height: 150%;
+  position: relative;
+  z-index: 3;
+}
+
+.spotify .artista {
+  font-size: 2vw;
+  line-height: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.slideOut {
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-name: slideOut;
+  animation-play-state: running;
+  animation-timing-function: ease-in;
+}
+
+.slideIn {
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-name: slideIn;
+  animation-play-state: running;
+  animation-timing-function: ease-out;
+}
+
+.flip {
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-duration: 2.3s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-name: slideIn, flip;
+  animation-play-state: running;
+  animation-timing-function: linear;
+}
+
+.slap {
+  transform: translateX(-100%) !important;
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes flip {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(1800deg);
+  }
+}

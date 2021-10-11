@@ -44,6 +44,18 @@ html {
   font-size: 8vw;
 }
 
+.cocina {
+  font-size: 9.5vw;
+}
+
+.aprendiendo {
+  font-size: 8vw;
+}
+
+.charlando {
+  font-size: 8vw;
+}
+
 @keyframes blink {
   0%,
   22%,
