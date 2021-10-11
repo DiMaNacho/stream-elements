@@ -30,11 +30,11 @@ const fn = () => {
     $cover.classList.add("flip");
     $label.classList.add("slap");
 
-    setTimeout(cb, 200);
+    setTimeout(cb, 800);
     setTimeout(() => {
       $cover.classList.remove("flip");
       $label.classList.remove("slap");
-    }, 500);
+    }, 1000);
   };
 
   const setImage = (track) => {
@@ -56,6 +56,13 @@ const fn = () => {
 
     return newImage;
   };
+
+  const loadImage = async (url, elem) =>
+    new Promise((resolve, reject) => {
+      elem.onload = () => resolve(elem);
+      elem.onerror = reject;
+      elem.src = url;
+    });
 
   const successHandler = async (response) => {
     const data = await response.json();
@@ -90,12 +97,14 @@ const fn = () => {
       if (oldArtista != track.artist.name || oldTitulo != track.name) {
         console.log("Changed track.");
 
-        flip(() => {
-          $cover.src = img;
+        const cb = async () => {
+          await loadImage(img, $cover);
           $blurry.style.backgroundImage = `url(${img})`;
           $artista.innerText = track.artist.name;
           $titulo.innerText = track.name;
-        });
+        };
+
+        flip(cb);
       }
     }
     setTimeout(tick, 3000);
@@ -111,7 +120,8 @@ const fn = () => {
     try {
       const apiKey = "883710f63e4383bc2fd1e058e89ea0ba";
       const params = new URLSearchParams(window.location.search);
-      const user = params.get("usuario") ?? "DiMaNacho";
+      const user =
+        params.get("usuario") !== null ? params.get("usuario") : "DiMaNacho";
       const request = await requestUpdate(apiKey, user);
       successHandler(request);
     } catch (error) {
