@@ -107,7 +107,7 @@ const fn = () => {
         flip(cb);
       }
     }
-    setTimeout(tick, 3000);
+    setTimeout(tick, 10000);
   };
 
   const failureHandler = (reason) => {
